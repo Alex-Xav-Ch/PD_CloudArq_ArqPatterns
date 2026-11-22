@@ -1,0 +1,26 @@
+server:
+  port: 8000
+
+payment:
+  url: http://127.0.0.1:8001/pay
+
+logging:
+  file:
+    # Relative to the module folder: run `mvn spring-boot:run` from order-service/.
+    name: ../evidences/order-service.log
+  level:
+    ec.uce.pd: INFO
+    io.github.resilience4j.circuitbreaker: INFO
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      payment:
+        # Opens after 3 failed calls out of the last 3.
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 3
+        minimumNumberOfCalls: 3
+        failureRateThreshold: 100
+        waitDurationInOpenState: 10s
+        automaticTransitionFromOpenToHalfOpenEnabled: true
+        permittedNumberOfCallsInHalfOpenState: 1

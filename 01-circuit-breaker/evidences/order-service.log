@@ -1,0 +1,49 @@
+2026-11-22T17:33:02.988-05:00  INFO 14180 --- [main] ec.uce.pd.order.OrderApplication         : Starting OrderApplication using Java 24.0.1 with PID 14180 (D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\01-circuit-breaker\order-service\target\classes started by DELL in D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\01-circuit-breaker\order-service)
+2026-11-22T17:33:02.991-05:00  INFO 14180 --- [main] ec.uce.pd.order.OrderApplication         : No active profile set, falling back to 1 default profile: "default"
+2026-11-22T17:33:04.682-05:00  INFO 14180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8000 (http)
+2026-11-22T17:33:04.703-05:00  INFO 14180 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-22T17:33:04.711-05:00  INFO 14180 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-11-22T17:33:04.883-05:00  INFO 14180 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-22T17:33:04.884-05:00  INFO 14180 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1838 ms
+2026-11-22T17:33:05.850-05:00  INFO 14180 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8000 (http) with context path '/'
+2026-11-22T17:33:05.861-05:00  INFO 14180 --- [main] ec.uce.pd.order.OrderApplication         : Started OrderApplication in 3.397 seconds (process running for 4.134)
+2026-11-22T17:33:05.866-05:00  INFO 14180 --- [main] ec.uce.pd.order.OrderController          : ===== ORDER SERVICE STARTED on port 8000 (circuit: CLOSED) =====
+2026-11-22T17:33:12.621-05:00  INFO 14180 --- [http-nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-22T17:33:12.622-05:00  INFO 14180 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-22T17:33:12.623-05:00  INFO 14180 --- [http-nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-11-22T17:33:12.652-05:00  INFO 14180 --- [http-nio-8000-exec-1] ec.uce.pd.order.OrderController          : 
+2026-11-22T17:33:12.653-05:00  INFO 14180 --- [http-nio-8000-exec-1] ec.uce.pd.order.OrderController          : ########## PHASE: 1. Normal traffic (circuit CLOSED) ##########
+2026-11-22T17:33:12.693-05:00  INFO 14180 --- [http-nio-8000-exec-2] ec.uce.pd.order.OrderController          : order 1 received (circuit: CLOSED)
+2026-11-22T17:33:12.928-05:00  INFO 14180 --- [http-nio-8000-exec-2] ec.uce.pd.order.OrderController          : order 1 COMPLETED, payment accepted (circuit: CLOSED)
+2026-11-22T17:33:12.951-05:00  INFO 14180 --- [http-nio-8000-exec-4] ec.uce.pd.order.OrderController          : 
+2026-11-22T17:33:12.951-05:00  INFO 14180 --- [http-nio-8000-exec-4] ec.uce.pd.order.OrderController          : ########## PHASE: 2. Payment service fails: 3 failures open the circuit ##########
+2026-11-22T17:33:12.971-05:00  INFO 14180 --- [http-nio-8000-exec-5] ec.uce.pd.order.OrderController          : order 2 received (circuit: CLOSED)
+2026-11-22T17:33:12.984-05:00  WARN 14180 --- [http-nio-8000-exec-5] ec.uce.pd.order.OrderController          :     payment call failed (InternalServerError)
+2026-11-22T17:33:12.985-05:00 ERROR 14180 --- [http-nio-8000-exec-5] ec.uce.pd.order.OrderController          : order 2 FAILED: payment error (502): 500 : "{"detail":"payment gateway down"}"
+2026-11-22T17:33:13.000-05:00  INFO 14180 --- [http-nio-8000-exec-7] ec.uce.pd.order.OrderController          : order 3 received (circuit: CLOSED)
+2026-11-22T17:33:13.013-05:00  WARN 14180 --- [http-nio-8000-exec-7] ec.uce.pd.order.OrderController          :     payment call failed (InternalServerError)
+2026-11-22T17:33:13.014-05:00 ERROR 14180 --- [http-nio-8000-exec-7] ec.uce.pd.order.OrderController          : order 3 FAILED: payment error (502): 500 : "{"detail":"payment gateway down"}"
+2026-11-22T17:33:13.029-05:00  INFO 14180 --- [http-nio-8000-exec-9] ec.uce.pd.order.OrderController          : order 4 received (circuit: CLOSED)
+2026-11-22T17:33:13.035-05:00  WARN 14180 --- [http-nio-8000-exec-9] ec.uce.pd.order.OrderController          :     payment call failed (InternalServerError)
+2026-11-22T17:33:13.038-05:00  INFO 14180 --- [http-nio-8000-exec-9] ec.uce.pd.order.OrderController          : >>> CIRCUIT STATE CHANGE: CLOSED -> OPEN
+2026-11-22T17:33:13.039-05:00 ERROR 14180 --- [http-nio-8000-exec-9] ec.uce.pd.order.OrderController          : order 4 FAILED: payment error (502): 500 : "{"detail":"payment gateway down"}"
+2026-11-22T17:33:13.049-05:00  INFO 14180 --- [http-nio-8000-exec-1] ec.uce.pd.order.OrderController          : 
+2026-11-22T17:33:13.049-05:00  INFO 14180 --- [http-nio-8000-exec-1] ec.uce.pd.order.OrderController          : ########## PHASE: 3. Calls are rejected immediately while the circuit is OPEN ##########
+2026-11-22T17:33:13.053-05:00  INFO 14180 --- [http-nio-8000-exec-2] ec.uce.pd.order.OrderController          : order 5 received (circuit: OPEN)
+2026-11-22T17:33:13.054-05:00  WARN 14180 --- [http-nio-8000-exec-2] ec.uce.pd.order.OrderController          : order 5 REJECTED without calling payment: circuit is OPEN (503)
+2026-11-22T17:33:13.068-05:00  INFO 14180 --- [http-nio-8000-exec-4] ec.uce.pd.order.OrderController          : order 6 received (circuit: OPEN)
+2026-11-22T17:33:13.068-05:00  WARN 14180 --- [http-nio-8000-exec-4] ec.uce.pd.order.OrderController          : order 6 REJECTED without calling payment: circuit is OPEN (503)
+2026-11-22T17:33:13.080-05:00  INFO 14180 --- [http-nio-8000-exec-6] ec.uce.pd.order.OrderController          : 
+2026-11-22T17:33:13.080-05:00  INFO 14180 --- [http-nio-8000-exec-6] ec.uce.pd.order.OrderController          : ########## PHASE: 4. Payment recovers, waiting 10 s for HALF_OPEN ##########
+2026-11-22T17:33:23.046-05:00  INFO 14180 --- [CircuitBreakerAutoTransitionThread] ec.uce.pd.order.OrderController          : >>> CIRCUIT STATE CHANGE: OPEN -> HALF_OPEN
+2026-11-22T17:33:23.609-05:00  INFO 14180 --- [http-nio-8000-exec-8] ec.uce.pd.order.OrderController          : 
+2026-11-22T17:33:23.610-05:00  INFO 14180 --- [http-nio-8000-exec-8] ec.uce.pd.order.OrderController          : ########## PHASE: 5. Probe request succeeds, circuit closes ##########
+2026-11-22T17:33:23.613-05:00  INFO 14180 --- [http-nio-8000-exec-9] ec.uce.pd.order.OrderController          : order 7 received (circuit: HALF_OPEN)
+2026-11-22T17:33:23.619-05:00  INFO 14180 --- [http-nio-8000-exec-9] ec.uce.pd.order.OrderController          : >>> CIRCUIT STATE CHANGE: HALF_OPEN -> CLOSED
+2026-11-22T17:33:23.620-05:00  INFO 14180 --- [http-nio-8000-exec-9] ec.uce.pd.order.OrderController          : order 7 COMPLETED, payment accepted (circuit: CLOSED)
+2026-11-22T17:33:23.632-05:00  INFO 14180 --- [http-nio-8000-exec-1] ec.uce.pd.order.OrderController          : order 8 received (circuit: CLOSED)
+2026-11-22T17:33:23.639-05:00  INFO 14180 --- [http-nio-8000-exec-1] ec.uce.pd.order.OrderController          : order 8 COMPLETED, payment accepted (circuit: CLOSED)
+2026-11-22T17:33:23.653-05:00  INFO 14180 --- [http-nio-8000-exec-3] ec.uce.pd.order.OrderController          : 
+2026-11-22T17:33:23.653-05:00  INFO 14180 --- [http-nio-8000-exec-3] ec.uce.pd.order.OrderController          : ########## PHASE: DEMO FINISHED ##########
+2026-11-22T17:41:34.711-05:00  INFO 14180 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-22T17:41:34.741-05:00  INFO 14180 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

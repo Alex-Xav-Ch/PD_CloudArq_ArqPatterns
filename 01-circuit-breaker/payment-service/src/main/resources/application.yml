@@ -1,0 +1,7 @@
+server:
+  port: 8001
+
+logging:
+  file:
+    # Relative to the module folder: run `mvn spring-boot:run` from payment-service/.
+    name: ../evidences/payment-service.log
