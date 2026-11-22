@@ -1,0 +1,26 @@
+server:
+  port: 8003
+
+enrollment:
+  url: http://127.0.0.1:8002
+
+logging:
+  file:
+    # Relative to the module folder: run `mvn spring-boot:run` from student-client/.
+    name: ../evidences/student-client.log
+
+resilience4j:
+  retry:
+    instances:
+      enrollment:
+        maxAttempts: 3
+        # Exponential backoff with jitter: ~1 s before attempt 2, ~2 s before attempt 3 (+/- 20 %).
+        waitDuration: 1s
+        enableExponentialBackoff: true
+        exponentialBackoffMultiplier: 2
+        enableRandomizedWait: true
+        randomizedWaitFactor: 0.2
+        # Only transient errors are retried: HTTP 503 and connection problems. A 404 is never retried.
+        retryExceptions:
+          - org.springframework.web.client.HttpServerErrorException$ServiceUnavailable
+          - org.springframework.web.client.ResourceAccessException

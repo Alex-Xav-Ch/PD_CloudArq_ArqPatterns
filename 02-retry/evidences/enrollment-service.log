@@ -1,0 +1,23 @@
+2026-11-22T18:12:45.935-05:00  INFO 9832 --- [main] e.u.pd.enrollment.EnrollmentApplication  : Starting EnrollmentApplication using Java 24.0.1 with PID 9832 (D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\02-retry\enrollment-service\target\classes started by DELL in D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\02-retry\enrollment-service)
+2026-11-22T18:12:45.946-05:00  INFO 9832 --- [main] e.u.pd.enrollment.EnrollmentApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-11-22T18:12:47.655-05:00  INFO 9832 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8002 (http)
+2026-11-22T18:12:47.720-05:00  INFO 9832 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-22T18:12:47.721-05:00  INFO 9832 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-11-22T18:12:47.829-05:00  INFO 9832 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-22T18:12:47.835-05:00  INFO 9832 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1670 ms
+2026-11-22T18:12:49.402-05:00  INFO 9832 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8002 (http) with context path '/'
+2026-11-22T18:12:49.413-05:00  INFO 9832 --- [main] e.u.pd.enrollment.EnrollmentApplication  : Started EnrollmentApplication in 4.653 seconds (process running for 5.231)
+2026-11-22T18:12:49.423-05:00  INFO 9832 --- [main] e.u.pd.enrollment.EnrollmentApplication  : ===== ENROLLMENT SERVICE STARTED on port 8002 =====
+2026-11-22T18:13:41.919-05:00  INFO 9832 --- [http-nio-8002-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-22T18:13:41.920-05:00  INFO 9832 --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-22T18:13:41.922-05:00  INFO 9832 --- [http-nio-8002-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-22T18:13:41.982-05:00  INFO 9832 --- [http-nio-8002-exec-1] e.u.pd.enrollment.EnrollmentApplication  : ===== ENROLLMENT SERVICE RESET (request counters cleared) =====
+2026-11-22T18:13:42.388-05:00  WARN 9832 --- [http-nio-8002-exec-2] e.u.pd.enrollment.EnrollmentApplication  : request 1 for alice -> 503 (temporarily unavailable)
+2026-11-22T18:13:43.582-05:00  WARN 9832 --- [http-nio-8002-exec-3] e.u.pd.enrollment.EnrollmentApplication  : request 2 for alice -> 503 (temporarily unavailable)
+2026-11-22T18:13:45.991-05:00  INFO 9832 --- [http-nio-8002-exec-4] e.u.pd.enrollment.EnrollmentApplication  : request 3 for alice -> 200 (ENROLLED)
+2026-11-22T18:13:46.198-05:00  WARN 9832 --- [http-nio-8002-exec-5] e.u.pd.enrollment.EnrollmentApplication  : request 1 for bob -> 503 (temporarily unavailable)
+2026-11-22T18:13:47.106-05:00  WARN 9832 --- [http-nio-8002-exec-6] e.u.pd.enrollment.EnrollmentApplication  : request 2 for bob -> 503 (temporarily unavailable)
+2026-11-22T18:13:49.270-05:00  WARN 9832 --- [http-nio-8002-exec-7] e.u.pd.enrollment.EnrollmentApplication  : request 3 for bob -> 503 (temporarily unavailable)
+2026-11-22T18:13:49.391-05:00  WARN 9832 --- [http-nio-8002-exec-8] e.u.pd.enrollment.EnrollmentApplication  : request for ghost -> 404 (student does not exist)
+2026-11-22T18:30:04.265-05:00  INFO 9832 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-22T18:30:04.498-05:00  INFO 9832 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

@@ -1,0 +1,47 @@
+2026-11-22T18:13:01.545-05:00  INFO 14500 --- [main] e.u.pd.client.StudentClientApplication   : Starting StudentClientApplication using Java 24.0.1 with PID 14500 (D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\02-retry\student-client\target\classes started by DELL in D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\02-retry\student-client)
+2026-11-22T18:13:01.549-05:00  INFO 14500 --- [main] e.u.pd.client.StudentClientApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-11-22T18:13:03.827-05:00  INFO 14500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8003 (http)
+2026-11-22T18:13:03.894-05:00  INFO 14500 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-22T18:13:03.925-05:00  INFO 14500 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-11-22T18:13:04.068-05:00  INFO 14500 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-22T18:13:04.069-05:00  INFO 14500 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2451 ms
+2026-11-22T18:13:05.918-05:00  INFO 14500 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8003 (http) with context path '/'
+2026-11-22T18:13:05.930-05:00  INFO 14500 --- [main] e.u.pd.client.StudentClientApplication   : Started StudentClientApplication in 5.057 seconds (process running for 5.522)
+2026-11-22T18:13:05.934-05:00  INFO 14500 --- [main] ec.uce.pd.client.StudentController       : ===== STUDENT CLIENT STARTED on port 8003 (max 3 attempts, exponential backoff) =====
+2026-11-22T18:13:42.198-05:00  INFO 14500 --- [http-nio-8003-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-22T18:13:42.198-05:00  INFO 14500 --- [http-nio-8003-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-22T18:13:42.200-05:00  INFO 14500 --- [http-nio-8003-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-22T18:13:42.243-05:00  INFO 14500 --- [http-nio-8003-exec-1] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:13:42.243-05:00  INFO 14500 --- [http-nio-8003-exec-1] ec.uce.pd.client.StudentController       : ########## PHASE: 1. Two transient failures, then success (recovers on attempt 3) ##########
+2026-11-22T18:13:42.280-05:00  INFO 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.StudentController       : request for student alice received
+2026-11-22T18:13:42.299-05:00  INFO 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.EnrollmentGateway       :   attempt 1 -> GET /enrollment/alice
+2026-11-22T18:13:42.404-05:00  WARN 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.EnrollmentGateway       :   attempt 1 <- HTTP 503
+2026-11-22T18:13:42.416-05:00  WARN 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.StudentController       :   >>> RETRY #1: waiting 1157 ms before the next attempt
+2026-11-22T18:13:43.575-05:00  INFO 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.EnrollmentGateway       :   attempt 2 -> GET /enrollment/alice
+2026-11-22T18:13:43.588-05:00  WARN 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.EnrollmentGateway       :   attempt 2 <- HTTP 503
+2026-11-22T18:13:43.601-05:00  WARN 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.StudentController       :   >>> RETRY #2: waiting 2368 ms before the next attempt
+2026-11-22T18:13:45.981-05:00  INFO 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.EnrollmentGateway       :   attempt 3 -> GET /enrollment/alice
+2026-11-22T18:13:46.141-05:00  INFO 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.EnrollmentGateway       :   attempt 3 <- HTTP 200
+2026-11-22T18:13:46.143-05:00  INFO 14500 --- [http-nio-8003-exec-2] ec.uce.pd.client.StudentController       : student alice RESOLVED after 3 attempt(s)
+2026-11-22T18:13:46.188-05:00  INFO 14500 --- [http-nio-8003-exec-3] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:13:46.189-05:00  INFO 14500 --- [http-nio-8003-exec-3] ec.uce.pd.client.StudentController       : ########## PHASE: 2. Every attempt fails (gives up after 3 attempts) ##########
+2026-11-22T18:13:46.194-05:00  INFO 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.StudentController       : request for student bob received
+2026-11-22T18:13:46.195-05:00  INFO 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.EnrollmentGateway       :   attempt 1 -> GET /enrollment/bob
+2026-11-22T18:13:46.201-05:00  WARN 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.EnrollmentGateway       :   attempt 1 <- HTTP 503
+2026-11-22T18:13:46.201-05:00  WARN 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.StudentController       :   >>> RETRY #1: waiting 894 ms before the next attempt
+2026-11-22T18:13:47.098-05:00  INFO 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.EnrollmentGateway       :   attempt 2 -> GET /enrollment/bob
+2026-11-22T18:13:47.112-05:00  WARN 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.EnrollmentGateway       :   attempt 2 <- HTTP 503
+2026-11-22T18:13:47.113-05:00  WARN 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.StudentController       :   >>> RETRY #2: waiting 2143 ms before the next attempt
+2026-11-22T18:13:49.258-05:00  INFO 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.EnrollmentGateway       :   attempt 3 -> GET /enrollment/bob
+2026-11-22T18:13:49.279-05:00  WARN 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.EnrollmentGateway       :   attempt 3 <- HTTP 503
+2026-11-22T18:13:49.302-05:00 ERROR 14500 --- [http-nio-8003-exec-4] ec.uce.pd.client.StudentController       : student bob FAILED: gave up after 3 attempts (503)
+2026-11-22T18:13:49.373-05:00  INFO 14500 --- [http-nio-8003-exec-5] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:13:49.373-05:00  INFO 14500 --- [http-nio-8003-exec-5] ec.uce.pd.client.StudentController       : ########## PHASE: 3. Non-transient error: 404 is not retried ##########
+2026-11-22T18:13:49.380-05:00  INFO 14500 --- [http-nio-8003-exec-6] ec.uce.pd.client.StudentController       : request for student ghost received
+2026-11-22T18:13:49.381-05:00  INFO 14500 --- [http-nio-8003-exec-6] ec.uce.pd.client.EnrollmentGateway       :   attempt 1 -> GET /enrollment/ghost
+2026-11-22T18:13:49.398-05:00  WARN 14500 --- [http-nio-8003-exec-6] ec.uce.pd.client.EnrollmentGateway       :   attempt 1 <- HTTP 404
+2026-11-22T18:13:49.400-05:00  WARN 14500 --- [http-nio-8003-exec-6] ec.uce.pd.client.StudentController       : student ghost NOT FOUND (404): not retried, attempts: 1
+2026-11-22T18:13:49.416-05:00  INFO 14500 --- [http-nio-8003-exec-7] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:13:49.421-05:00  INFO 14500 --- [http-nio-8003-exec-7] ec.uce.pd.client.StudentController       : ########## PHASE: DEMO FINISHED ##########
+2026-11-22T18:30:08.869-05:00  INFO 14500 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-22T18:30:09.004-05:00  INFO 14500 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete
