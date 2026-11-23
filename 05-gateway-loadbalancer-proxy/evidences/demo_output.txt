@@ -1,0 +1,21 @@
+﻿== 1. Load balancing: 12 sequential requests through the API Gateway
+request 1: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+request 2: HTTP 200 | instance ip-10-20-1-115.ec2.internal
+request 3: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+request 4: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+request 5: HTTP 200 | instance ip-10-20-1-115.ec2.internal
+request 6: HTTP 200 | instance ip-10-20-1-115.ec2.internal
+request 7: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+request 8: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+request 9: HTTP 200 | instance ip-10-20-1-115.ec2.internal
+request 10: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+request 11: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+request 12: HTTP 200 | instance ip-10-20-0-85.ec2.internal
+summary: {ip-10-20-0-85.ec2.internal=8, ip-10-20-1-115.ec2.internal=4}
+== 2. Throttling: burst of 100 simultaneous requests through the API Gateway
+status codes: {200=98, 429=2}
+answered by: {ip-10-20-0-85.ec2.internal=48, ip-10-20-1-115.ec2.internal=50}
+== 3. Same burst of 100 requests straight to the ALB (no gateway)
+status codes: {200=100}
+answered by: {ip-10-20-0-85.ec2.internal=50, ip-10-20-1-115.ec2.internal=50}
+== DEMO FINISHED
