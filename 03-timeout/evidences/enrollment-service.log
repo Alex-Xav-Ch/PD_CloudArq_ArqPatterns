@@ -1,0 +1,21 @@
+2026-11-22T18:51:48.390-05:00  INFO 16780 --- [main] e.u.pd.enrollment.EnrollmentApplication  : Starting EnrollmentApplication using Java 24.0.1 with PID 16780 (D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\03-timeout\enrollment-service\target\classes started by DELL in D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\03-timeout\enrollment-service)
+2026-11-22T18:51:48.398-05:00  INFO 16780 --- [main] e.u.pd.enrollment.EnrollmentApplication  : No active profile set, falling back to 1 default profile: "default"
+2026-11-22T18:51:52.719-05:00  INFO 16780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8004 (http)
+2026-11-22T18:51:52.776-05:00  INFO 16780 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-22T18:51:52.777-05:00  INFO 16780 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-11-22T18:51:52.944-05:00  INFO 16780 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-22T18:51:52.946-05:00  INFO 16780 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 4149 ms
+2026-11-22T18:51:54.279-05:00  INFO 16780 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8004 (http) with context path '/'
+2026-11-22T18:51:54.298-05:00  INFO 16780 --- [main] e.u.pd.enrollment.EnrollmentApplication  : Started EnrollmentApplication in 7.977 seconds (process running for 8.832)
+2026-11-22T18:51:54.305-05:00  INFO 16780 --- [main] e.u.pd.enrollment.EnrollmentApplication  : ===== ENROLLMENT SERVICE STARTED on port 8004 =====
+2026-11-22T18:53:18.140-05:00  INFO 16780 --- [http-nio-8004-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-22T18:53:18.140-05:00  INFO 16780 --- [http-nio-8004-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-22T18:53:18.141-05:00  INFO 16780 --- [http-nio-8004-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-11-22T18:53:18.200-05:00  INFO 16780 --- [http-nio-8004-exec-1] e.u.pd.enrollment.EnrollmentApplication  : request for alice received: will answer in 500 ms
+2026-11-22T18:53:18.703-05:00  INFO 16780 --- [http-nio-8004-exec-1] e.u.pd.enrollment.EnrollmentApplication  : response for alice sent after 500 ms (the client may have given up already)
+2026-11-22T18:53:18.927-05:00  INFO 16780 --- [http-nio-8004-exec-2] e.u.pd.enrollment.EnrollmentApplication  : request for bob received: will answer in 1500 ms
+2026-11-22T18:53:20.435-05:00  INFO 16780 --- [http-nio-8004-exec-2] e.u.pd.enrollment.EnrollmentApplication  : response for bob sent after 1500 ms (the client may have given up already)
+2026-11-22T18:53:20.506-05:00  INFO 16780 --- [http-nio-8004-exec-3] e.u.pd.enrollment.EnrollmentApplication  : request for carol received: will answer in 5000 ms
+2026-11-22T18:53:25.520-05:00  INFO 16780 --- [http-nio-8004-exec-3] e.u.pd.enrollment.EnrollmentApplication  : response for carol sent after 5000 ms (the client may have given up already)
+2026-11-22T19:00:26.337-05:00  INFO 16780 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-22T19:00:26.474-05:00  INFO 16780 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

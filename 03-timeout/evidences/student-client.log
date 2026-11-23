@@ -1,0 +1,29 @@
+2026-11-22T18:51:55.324-05:00  INFO 6328 --- [main] e.u.pd.client.StudentClientApplication   : Starting StudentClientApplication using Java 24.0.1 with PID 6328 (D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\03-timeout\student-client\target\classes started by DELL in D:\UCE\Semestre VIII\Programacion Distribuida\Proyectos\PD_CloudArq_ArqPatterns_Java\03-timeout\student-client)
+2026-11-22T18:51:55.332-05:00  INFO 6328 --- [main] e.u.pd.client.StudentClientApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-11-22T18:51:57.359-05:00  INFO 6328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8005 (http)
+2026-11-22T18:51:57.385-05:00  INFO 6328 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-22T18:51:57.386-05:00  INFO 6328 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.34]
+2026-11-22T18:51:57.513-05:00  INFO 6328 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-11-22T18:51:57.513-05:00  INFO 6328 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2104 ms
+2026-11-22T18:51:58.169-05:00  INFO 6328 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8005 (http) with context path '/'
+2026-11-22T18:51:58.180-05:00  INFO 6328 --- [main] e.u.pd.client.StudentClientApplication   : Started StudentClientApplication in 3.689 seconds (process running for 4.344)
+2026-11-22T18:51:58.185-05:00  INFO 6328 --- [main] ec.uce.pd.client.StudentController       : ===== STUDENT CLIENT STARTED on port 8005 (connect timeout 1000 ms, read timeout 2000 ms) =====
+2026-11-22T18:53:17.882-05:00  INFO 6328 --- [http-nio-8005-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-22T18:53:17.883-05:00  INFO 6328 --- [http-nio-8005-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-22T18:53:17.886-05:00  INFO 6328 --- [http-nio-8005-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-11-22T18:53:17.947-05:00  INFO 6328 --- [http-nio-8005-exec-1] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:53:17.947-05:00  INFO 6328 --- [http-nio-8005-exec-1] ec.uce.pd.client.StudentController       : ########## PHASE: 1. Fast response (0.5 s): well inside the 2 s limit ##########
+2026-11-22T18:53:18.038-05:00  INFO 6328 --- [http-nio-8005-exec-2] ec.uce.pd.client.StudentController       : request for student alice sent: service will take 500 ms, read timeout is 2000 ms
+2026-11-22T18:53:18.860-05:00  INFO 6328 --- [http-nio-8005-exec-2] ec.uce.pd.client.StudentController       : student alice response received in 820 ms -> OK
+2026-11-22T18:53:18.908-05:00  INFO 6328 --- [http-nio-8005-exec-3] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:53:18.909-05:00  INFO 6328 --- [http-nio-8005-exec-3] ec.uce.pd.client.StudentController       : ########## PHASE: 2. Slower response (1.5 s): still inside the 2 s limit ##########
+2026-11-22T18:53:18.921-05:00  INFO 6328 --- [http-nio-8005-exec-5] ec.uce.pd.client.StudentController       : request for student bob sent: service will take 1500 ms, read timeout is 2000 ms
+2026-11-22T18:53:20.441-05:00  INFO 6328 --- [http-nio-8005-exec-5] ec.uce.pd.client.StudentController       : student bob response received in 1516 ms -> OK
+2026-11-22T18:53:20.461-05:00  INFO 6328 --- [http-nio-8005-exec-6] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:53:20.462-05:00  INFO 6328 --- [http-nio-8005-exec-6] ec.uce.pd.client.StudentController       : ########## PHASE: 3. Very slow response (5 s): the 2 s limit is exceeded ##########
+2026-11-22T18:53:20.489-05:00  INFO 6328 --- [http-nio-8005-exec-4] ec.uce.pd.client.StudentController       : request for student carol sent: service will take 5000 ms, read timeout is 2000 ms
+2026-11-22T18:53:22.504-05:00 ERROR 6328 --- [http-nio-8005-exec-4] ec.uce.pd.client.StudentController       : student carol TIMEOUT after 2008 ms (limit 2000 ms): Read timed out
+2026-11-22T18:53:22.563-05:00  INFO 6328 --- [http-nio-8005-exec-7] ec.uce.pd.client.StudentController       : 
+2026-11-22T18:53:22.572-05:00  INFO 6328 --- [http-nio-8005-exec-7] ec.uce.pd.client.StudentController       : ########## PHASE: DEMO FINISHED ##########
+2026-11-22T19:00:28.135-05:00  INFO 6328 --- [SpringApplicationShutdownHook] o.s.b.w.e.tomcat.GracefulShutdown        : Commencing graceful shutdown. Waiting for active requests to complete
+2026-11-22T19:00:28.189-05:00  INFO 6328 --- [tomcat-shutdown] o.s.b.w.e.tomcat.GracefulShutdown        : Graceful shutdown complete

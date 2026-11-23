@@ -1,0 +1,13 @@
+server:
+  port: 8005
+
+enrollment:
+  url: http://127.0.0.1:8004
+  # Max time to open the connection and max time to wait for the response once connected.
+  connect-timeout-ms: 1000
+  read-timeout-ms: 2000
+
+logging:
+  file:
+    # Relative to the module folder: run `mvn spring-boot:run` from student-client/.
+    name: ../evidences/student-client.log
