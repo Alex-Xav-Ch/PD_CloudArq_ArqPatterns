@@ -1,0 +1,27 @@
+﻿== AWS Lambda (API Gateway) | https://31pk563952.execute-api.us-east-1.amazonaws.com
+request 1: HTTP 200 in 1585 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":true}
+request 2: HTTP 200 in 146 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 3: HTTP 200 in 152 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 4: HTTP 200 in 133 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 5: HTTP 200 in 148 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 6: HTTP 200 in 136 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 7: HTTP 200 in 130 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 8: HTTP 200 in 131 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 9: HTTP 200 in 132 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+request 10: HTTP 200 in 138 ms | {"id":"1","name":"Ana Torres","runtime":"lambda","coldStart":false}
+student 99: HTTP 404 | {"detail":"student not found"}
+summary: first request 1585 ms | average of the next 9 requests 138 ms
+== Amazon ECS on Fargate (ALB) | http://students-alb-1547682344.us-east-1.elb.amazonaws.com
+request 1: HTTP 200 in 356 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 2: HTTP 200 in 111 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 3: HTTP 200 in 114 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 4: HTTP 200 in 110 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 5: HTTP 200 in 134 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 6: HTTP 200 in 123 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 7: HTTP 200 in 107 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 8: HTTP 200 in 107 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 9: HTTP 200 in 116 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+request 10: HTTP 200 in 109 ms | {"id":"1","runtime":"ecs-fargate","name":"Ana Torres"}
+student 99: HTTP 404 | {"detail":"student not found"}
+summary: first request 356 ms | average of the next 9 requests 115 ms
+== DEMO FINISHED
