@@ -1,0 +1,19 @@
+﻿Bastion (public): 107.20.31.50 | Private server: 10.30.2.173
+
+== TEST 1: SSH straight to the private server (no bastion)
+BLOCKED (expected): ssh: connect to host 10.30.2.173 port 22: Connection timed out
+
+== TEST 2: SSH to the bastion from the administrator IP
+OK
+ip-10-30-1-5.ec2.internal
+10.30.1.5
+
+== TEST 3: SSH to the private server through the bastion
+OK
+ip-10-30-2-173.ec2.internal
+10.30.2.173
+
+== TEST 4: audit trail kept by the bastion (successful SSH logins recorded by sshd)
+OK: 3 successful logins recorded on the bastion
+
+== DONE
