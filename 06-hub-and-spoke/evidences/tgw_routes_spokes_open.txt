@@ -1,0 +1,42 @@
+﻿--------------------------------------------------------------------
+|                    SearchTransitGatewayRoutes                    |
++------------------------------------------------------------------+
+||                             Routes                             ||
+|+-----------------------------------------------+----------------+|
+||  DestinationCidrBlock                         |  10.0.0.0/16   ||
+||  State                                        |  active        ||
+||  TransitGatewayRouteTableAnnouncementId       |                ||
+||  Type                                         |  propagated    ||
+|+-----------------------------------------------+----------------+|
+|||                   TransitGatewayAttachments                  |||
+||+-----------------------------+--------------------------------+||
+|||  ResourceId                 |  vpc-0a2278981b5b4e495         |||
+|||  ResourceType               |  vpc                           |||
+|||  TransitGatewayAttachmentId |  tgw-attach-028b3f085d5122061  |||
+||+-----------------------------+--------------------------------+||
+||                             Routes                             ||
+|+-----------------------------------------------+----------------+|
+||  DestinationCidrBlock                         |  10.1.0.0/16   ||
+||  State                                        |  active        ||
+||  TransitGatewayRouteTableAnnouncementId       |                ||
+||  Type                                         |  propagated    ||
+|+-----------------------------------------------+----------------+|
+|||                   TransitGatewayAttachments                  |||
+||+-----------------------------+--------------------------------+||
+|||  ResourceId                 |  vpc-092f28e0264ad79ef         |||
+|||  ResourceType               |  vpc                           |||
+|||  TransitGatewayAttachmentId |  tgw-attach-0a9e129e8acae8347  |||
+||+-----------------------------+--------------------------------+||
+||                             Routes                             ||
+|+-----------------------------------------------+----------------+|
+||  DestinationCidrBlock                         |  10.2.0.0/16   ||
+||  State                                        |  active        ||
+||  TransitGatewayRouteTableAnnouncementId       |                ||
+||  Type                                         |  propagated    ||
+|+-----------------------------------------------+----------------+|
+|||                   TransitGatewayAttachments                  |||
+||+-----------------------------+--------------------------------+||
+|||  ResourceId                 |  vpc-02620a5860c902116         |||
+|||  ResourceType               |  vpc                           |||
+|||  TransitGatewayAttachmentId |  tgw-attach-051077eef91becd4c  |||
+||+-----------------------------+--------------------------------+||

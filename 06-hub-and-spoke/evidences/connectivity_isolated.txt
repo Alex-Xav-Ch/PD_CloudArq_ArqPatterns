@@ -1,0 +1,25 @@
+﻿== Waiting for the instances to register in Systems Manager
+== Private IPs
+hub        10.0.1.49
+spoke_app  10.1.1.71
+spoke_dev  10.2.1.166
+== Connectivity (3 pings from each source to each destination)
+hub        -> spoke_app  (10.1.1.71   ) 3/3 replies  REACHABLE
+hub        -> spoke_dev  (10.2.1.166  ) 3/3 replies  REACHABLE
+spoke_app  -> hub        (10.0.1.49   ) 3/3 replies  REACHABLE
+spoke_app  -> spoke_dev  (10.2.1.166  ) 0/3 replies  BLOCKED
+spoke_dev  -> hub        (10.0.1.49   ) 3/3 replies  REACHABLE
+spoke_dev  -> spoke_app  (10.1.1.71   ) 0/3 replies  BLOCKED
+== Summary
+
+From      To        Replies Result   
+----      --        ------- ------   
+hub       spoke_app       3 REACHABLE
+hub       spoke_dev       3 REACHABLE
+spoke_app hub             3 REACHABLE
+spoke_app spoke_dev       0 BLOCKED  
+spoke_dev hub             3 REACHABLE
+spoke_dev spoke_app       0 BLOCKED  
+
+
+
