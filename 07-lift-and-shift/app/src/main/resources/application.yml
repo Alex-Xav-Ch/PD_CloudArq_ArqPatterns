@@ -1,0 +1,9 @@
+server:
+  port: 8080
+
+# The application is identical in every environment: only these values change (they come from the environment).
+spring:
+  datasource:
+    url: ${DATABASE_URL:jdbc:postgresql://localhost:5432/academic}
+    username: ${DB_USER:app}
+    password: ${DB_PASSWORD:app}

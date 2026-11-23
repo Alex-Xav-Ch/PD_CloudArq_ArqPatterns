@@ -1,0 +1,5 @@
+﻿target: http://localhost:8080
+GET  /info -> HTTP 200 | {"host":"e964318f3d41","database":"jdbc:postgresql://db:5432/academic","java":"17.0.21.1","students":3}
+GET  /health -> HTTP 200 | {"status":"ok"}
+GET  /students -> HTTP 200 | [{"id":1,"name":"Ana Torres"},{"id":2,"name":"Luis Mena"},{"id":3,"name":"Marta Quispe"}]
+POST /students -> HTTP 201 | {"name":"Smoke test 2026-11-22T23:23:56","id":4}

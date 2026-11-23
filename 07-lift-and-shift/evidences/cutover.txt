@@ -1,0 +1,8 @@
+﻿Cutover started 2026-11-22 23:36:13
+[23:36:13] 1/5 Freezing the origin: the application is stopped, no more writes
+[23:36:17] 2/5 Exporting the database from the origin
+[23:36:20] 3/5 Uploading the dump and the jar to S3 (lift-and-shift-992382781245-us-east-1)
+[23:36:28] 4/5 Creating the target server (it installs the stack and restores the data when it boots)
+[23:37:56] 5/5 Waiting for the migrated application to answer at http://13.217.198.212:8080
+[23:38:48] Target answering at http://13.217.198.212:8080
+Service interruption (origin stopped -> target answering): 155 s (02:35)

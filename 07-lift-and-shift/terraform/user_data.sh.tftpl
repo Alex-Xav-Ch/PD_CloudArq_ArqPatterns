@@ -1,0 +1,43 @@
+#!/bin/bash
+# Lift-and-shift target: the same stack as the origin (Java + PostgreSQL on one server), restored from S3.
+exec > /var/log/migration.log 2>&1
+set -x
+echo "MIGRATION STARTED $(date -Is)"
+
+dnf install -y java-17-amazon-corretto-headless postgresql16-server || dnf install -y java-17-amazon-corretto-headless postgresql15-server
+
+# PostgreSQL: initialize, accept password logins from localhost, and start.
+postgresql-setup --initdb
+sed -i 's/ident$/scram-sha-256/' /var/lib/pgsql/data/pg_hba.conf
+systemctl enable --now postgresql
+
+runuser -u postgres -- psql -c "CREATE ROLE app LOGIN PASSWORD 'app'"
+runuser -u postgres -- createdb -O app academic
+
+# Data: restore the dump exported from the origin.
+aws s3 cp s3://${bucket}/academic.sql /tmp/academic.sql
+PGPASSWORD=app psql -h 127.0.0.1 -U app -d academic -v ON_ERROR_STOP=1 -f /tmp/academic.sql
+
+# Application: the same jar that runs at the origin, as a systemd service.
+mkdir -p /opt/academic
+aws s3 cp s3://${bucket}/academic-app.jar /opt/academic/academic-app.jar
+
+cat > /etc/systemd/system/academic.service <<'UNIT'
+[Unit]
+Description=Academic app
+After=postgresql.service
+
+[Service]
+Environment=DATABASE_URL=jdbc:postgresql://localhost:5432/academic
+Environment=DB_USER=app
+Environment=DB_PASSWORD=app
+ExecStart=/usr/bin/java -jar /opt/academic/academic-app.jar
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+UNIT
+
+systemctl daemon-reload
+systemctl enable --now academic
+echo "MIGRATION FINISHED $(date -Is)"

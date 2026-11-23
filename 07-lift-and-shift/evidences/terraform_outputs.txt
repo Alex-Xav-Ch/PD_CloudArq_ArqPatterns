@@ -1,0 +1,4 @@
+﻿app_url = "http://13.217.198.212:8080"
+bucket_name = "lift-and-shift-992382781245-us-east-1"
+target_instance_id = "i-0f0e56d21c5cf92b8"
+target_private_ip = "172.31.16.70"

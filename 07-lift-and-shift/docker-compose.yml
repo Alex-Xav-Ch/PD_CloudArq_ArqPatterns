@@ -1,0 +1,21 @@
+# Simulated on-premises environment: the application and its PostgreSQL database.
+services:
+  db:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_USER: app
+      POSTGRES_PASSWORD: app
+      POSTGRES_DB: academic
+    volumes:
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+
+  app:
+    build: ./app
+    environment:
+      DATABASE_URL: jdbc:postgresql://db:5432/academic
+      DB_USER: app
+      DB_PASSWORD: app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
